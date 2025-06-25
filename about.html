@@ -20,13 +20,14 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
-        <script type="text/javascript" src="js/index.js"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqvpz4SD6WQzv4AyczC0DVxMlWDbNOgoA&libraries=marker&loading=async&callback=initMap"></script>
+        <!-- <script type="text/javascript" src="js/index.js"></script> -->
     </head>
     <body>
         <!-- Spinner Start -->
-        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
-            <div class="spinner-grow text-primary" role="status"></div>
+        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="jumping-spinner" role="status">
+                <img src="/img/lamota.png" alt="Logo" width="60" height="60">
+            </div>
         </div>
         <!-- Spinner End -->
         <!-- Navbar start -->
@@ -45,14 +46,14 @@
             </div>
             <div class="container px-0">
                 <nav class="navbar navbar-light bg-white navbar-expand-xl">
-                    <a href="index.html" class="navbar-brand"><img src="img/lamota.png" height="60" width="60"></a>
+                    <a href="main.html" class="navbar-brand"><img src="img/lamota.png" height="60" width="60"></a>
                     <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="fa fa-bars text-primary"></span>
                     </button>
                     <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                         <div class="navbar-nav mx-auto">
-                            <a href="index.html" class="nav-item nav-link active">Home</a>
-                            <a href="shop.html" class="nav-item nav-link">Shop</a>
+                            <a href="main.html" class="nav-item nav-link active">Home</a>
+                            <a href="shop.html" class="nav-item nav-link">Shop <i class="fa fa-cannabis"></i></a>
                             <a href="careers.html" class="nav-item nav-link">Careers</a>
                             <a href="about.html" class="nav-item nav-link">About Us</a>
                         </div>
@@ -88,6 +89,7 @@
         <!-- Modal Search End -->
         <!-- Single Page Header start -->
         <div class="py-5">
+            <h1 class="text-center text-dark display-6">About</h1>
         </div>
         <!-- Single Page Header End -->
         <!-- Contact Start -->
@@ -195,6 +197,29 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    </body>
+    <script>
+      function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: 37.7749, lng: -122.4194 },
+          zoom: 5,
+          mapId: "7c47e6adf119c2e23b0ec9fa"  // ← Required for AdvancedMarkerElement
+        });
 
+        const locations = [
+          { lat: 37.7749, lng: -122.4194, title: "San Francisco" },
+          { lat: 34.0522, lng: -118.2437, title: "Los Angeles" },
+          { lat: 40.7128, lng: -74.0060, title: "New York" },
+        ];
+
+        locations.forEach((loc) => {
+          new google.maps.marker.AdvancedMarkerElement({
+            map: map,
+            position: { lat: loc.lat, lng: loc.lng },
+            title: loc.title,
+          });
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqvpz4SD6WQzv4AyczC0DVxMlWDbNOgoA&loading=async&libraries=marker&callback=initMap"></script>
+    </body>
 </html>
