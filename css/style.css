@@ -289,49 +289,49 @@
 /*** service End ***/
 
 
-/*** Fruits Start ***/
-.fruite .tab-class .nav-item a.active {
+/*** lamota Start ***/
+.lamota .tab-class .nav-item a.active {
     background: var(--bs-secondary) !important;
 }
 
-.fruite .tab-class .nav-item a.active span {
+.lamota .tab-class .nav-item a.active span {
     color: var(--bs-white) !important; 
 }
 
-.fruite .fruite-categorie .fruite-name {
+.lamota .lamota-categorie .lamota-name {
     line-height: 40px;
 }
 
-.fruite .fruite-categorie .fruite-name a {
+.lamota .lamota-categorie .lamota-name a {
     transition: 0.5s;
 }
 
-.fruite .fruite-categorie .fruite-name a:hover {
+.lamota .lamota-categorie .lamota-name a:hover {
     color: var(--bs-secondary);
 }
 
-.fruite .fruite-item {
+.lamota .lamota-item {
     height: 100%;
     transition: 0.5s;
 }
-.fruite .fruite-item:hover {
+.lamota .lamota-item:hover {
     box-shadow: 0 0 55px rgba(0, 0, 0, 0.4);
 }
 
-.fruite .fruite-item .fruite-img {
+.lamota .lamota-item .lamota-img {
     overflow: hidden;
     transition: 0.5s;
     border-radius: 10px 10px 0 0;
 }
 
-.fruite .fruite-item .fruite-img img {
+.lamota .lamota-item .lamota-img img {
     transition: 0.5s;
 }
 
-.fruite .fruite-item .fruite-img img:hover {
+.lamota .lamota-item .lamota-img img:hover {
     transform: scale(1.3);
 }
-/*** Fruits End ***/
+/*** lamota End ***/
 
 
 /*** vesitable Start ***/

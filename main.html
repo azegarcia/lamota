@@ -23,40 +23,90 @@
     </head>
     <style>
     .image-scroll-wrapper {
-    position: sticky;
-    top: 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+        position: sticky;
+        top: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        flex-wrap: nowrap;
     }
 
     .image-part {
-    width: 300px;
-    transition: transform 0.2s ease-out;
-    z-index: 1;
+        width: 150px;
+        max-width: 35vw;
+        transition: transform 0.2s ease-out;
+        z-index: 1;
     }
 
     .left {
-    transform-origin: right center;
+        transform-origin: right center;
     }
 
     .right {
-    transform-origin: left center;
+        transform-origin: left center;
     }
 
     .center-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    z-index: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        z-index: 0;
+    }
+
+    .shop-now-img {
+        width: 300px;
+        height: 100px;
+        max-width: 80vw;
+        max-height: 80px;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 576px) {
+        .image-part {
+            width: 100px;
+        }
+        .shop-now-img {
+            width: 220px;
+            height: auto;
+        }
     }
 
     .transition {
     transition: transform 0.5s ease;
+    }
+
+    .slider-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    }
+
+    .product-card {
+    width: 250px; /* consistent width for swipe and scroll */
+    }
+
+    @media (max-width: 768px) {
+        .product-card {
+            width: 80vw;
+        }
+
+        .btn.btn-square, .btn.btn-secondary {
+            padding: 0.25rem 0.5rem;
+            font-size: 1rem;
+        }
+
+        .tab-class h1 {
+            font-size: 1.5rem;
+        }
+
+        .tab-class .nav {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
     }
     </style>
     <body>
@@ -203,131 +253,136 @@
         <div class="container-fluid py-5" style="height: 100vh; position: relative; overflow: hidden; background: #f8f9fa;">
             <!-- Image wrapper (sticky) -->
             <div class="image-scroll-wrapper">
-                <img src="/img/lighter2.png" class="image-part left" alt="Lighter">
-                <img src="/img/cartoon.png" class="image-part right" alt="Hand">
+                <img src="/img/lighter2.png" class="image-part left" alt="Lighter" style="width:350px;height:300px;">
+                <img src="/img/cartoon.png" class="image-part right" alt="Hand" style="width:300px;height:300px;">
+
                 <!-- CENTER BUTTON -->
-                <a href="/shop.html" id="centerBtn" class="btn px-3 text-primary center-button"><img src="/img/shopnow.png" style="width:300px;height:100px;"></a>
+                <a href="/shop.html" id="centerBtn" class="btn px-3 text-primary center-button">
+                    <img src="/img/shopnow.png" class="shop-now-img" alt="Shop Now" style="width:300px;height:100px;">
+                </a>
             </div>
         </div>
-        <!-- Fruits Shop Start-->
-        <div class="container-fluid fruite py-5">
+        <!-- lamota Shop Start-->
+        <div class="container-fluid lamota py-5">
             <div class="container py-5">
                 <div class="tab-class text-center">
-                    <div class="row g-4">
+                    <div class="row g-4 align-items-center">
                         <div class="col-lg-4 text-start">
                             <h1>Categories</h1>
                         </div>
-                        <div class="col-lg-8 text-end">
-                            <ul class="nav nav-pills d-inline-flex text-center mb-5">
+                        <div class="col-lg-8 text-lg-end text-center">
+                            <ul class="nav nav-pills d-inline-flex text-center mb-4 mb-lg-5">
+                                <!-- tabs go here -->
                             </ul>
                         </div>
                     </div>
                     <!-- Wrapper for the product slider -->
                     <div class="position-relative">
-                        <!-- Buttons -->
-                        <button id="prevBtn" class="btn btn-square position-absolute top-50 start-0 translate-middle-y z-3" style="z-index:2;">&#10094;</button>
-                        <button id="nextBtn" class="btn btn-square position-absolute top-50 end-0 translate-middle-y z-3" style="z-index:2;">&#10095;</button>
+                        <!-- Navigation Buttons -->
+                        <button id="prevBtn" class="btn btn-secondary btn-sm position-absolute top-50 start-0 translate-middle-y d-none d-md-block z-3">&#10094;</button>
+                        <button id="nextBtn" class="btn btn-secondary btn-sm position-absolute top-50 end-0 translate-middle-y d-none d-md-block z-3">&#10095;</button>
                         <!-- Slider Container -->
-                        <div class="overflow-hidden">
-                            <div id="sliderTrack" class="d-flex transition">
-                                <!-- All product items go here -->
-                                <div class="col-md-6 col-lg-4 col-xl-3 flex-shrink-0 px-2">
-                                    <div class="rounded position-relative fruite-item">
-                                        <div class="fruite-img">
+                        <div class="overflow-x-auto slider-wrapper">
+                            <div id="sliderTrack" class="d-flex transition flex-nowrap">
+                                <!-- Product items -->
+                                <!-- repeatable product block -->
+                                <div class="product-card flex-shrink-0 px-2">
+                                    <div class="rounded position-relative lamota-item">
+                                        <div class="lamota-img">
                                             <img src="img/lamota2.jpeg" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
-                                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                            <h4>Bulk Flower</h4>
+                                        <div class="p-3 p-md-4 border border-secondary border-top-0 rounded-bottom">
+                                            <h5 class="mb-0">Bulk Flower</h5>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-lg-4 col-xl-3 flex-shrink-0 px-2">
-                                    <div class="rounded position-relative fruite-item">
-                                        <div class="fruite-img">
+                                <div class="product-card flex-shrink-0 px-2">
+                                    <div class="rounded position-relative lamota-item">
+                                        <div class="lamota-img">
                                             <img src="img/lamota2.jpeg" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
-                                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                            <h4>Concentrates</h4>
+                                        <div class="p-3 p-md-4 border border-secondary border-top-0 rounded-bottom">
+                                            <h5 class="mb-0">Concentrates</h5>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-lg-4 col-xl-3 flex-shrink-0 px-2">
-                                    <div class="rounded position-relative fruite-item">
-                                        <div class="fruite-img">
+                                <div class="product-card flex-shrink-0 px-2">
+                                    <div class="rounded position-relative lamota-item">
+                                        <div class="lamota-img">
                                             <img src="img/lamota2.jpeg" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
-                                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                            <h4>Edibles</h4>
+                                        <div class="p-3 p-md-4 border border-secondary border-top-0 rounded-bottom">
+                                            <h5 class="mb-0">Edibles</h5>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-lg-4 col-xl-3 flex-shrink-0 px-2">
-                                    <div class="rounded position-relative fruite-item">
-                                        <div class="fruite-img">
+                                <div class="product-card flex-shrink-0 px-2">
+                                    <div class="rounded position-relative lamota-item">
+                                        <div class="lamota-img">
                                             <img src="img/lamota2.jpeg" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
-                                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                            <h4>Extracts</h4>
+                                        <div class="p-3 p-md-4 border border-secondary border-top-0 rounded-bottom">
+                                            <h5 class="mb-0">Extracts</h5>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-lg-4 col-xl-3 flex-shrink-0 px-2">
-                                    <div class="rounded position-relative fruite-item">
-                                        <div class="fruite-img">
+                                <div class="product-card flex-shrink-0 px-2">
+                                    <div class="rounded position-relative lamota-item">
+                                        <div class="lamota-img">
                                             <img src="img/lamota2.jpeg" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
-                                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                            <h4>Infused Preroll</h4>
+                                        <div class="p-3 p-md-4 border border-secondary border-top-0 rounded-bottom">
+                                            <h5 class="mb-0">Infused Preroll</h5>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-lg-4 col-xl-3 flex-shrink-0 px-2">
-                                    <div class="rounded position-relative fruite-item">
-                                        <div class="fruite-img">
+                                <div class="product-card flex-shrink-0 px-2">
+                                    <div class="rounded position-relative lamota-item">
+                                        <div class="lamota-img">
                                             <img src="img/lamota2.jpeg" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
-                                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                            <h4>Paraphernalia</h4>
+                                        <div class="p-3 p-md-4 border border-secondary border-top-0 rounded-bottom">
+                                            <h5 class="mb-0">Other (Combined Category)</h5>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-lg-4 col-xl-3 flex-shrink-0 px-2">
-                                    <div class="rounded position-relative fruite-item">
-                                        <div class="fruite-img">
+                                <div class="product-card flex-shrink-0 px-2">
+                                    <div class="rounded position-relative lamota-item">
+                                        <div class="lamota-img">
                                             <img src="img/lamota2.jpeg" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
-                                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                            <h4>Preroll</h4>
+                                        <div class="p-3 p-md-4 border border-secondary border-top-0 rounded-bottom">
+                                            <h5 class="mb-0">Paraphernalia</h5>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-lg-4 col-xl-3 flex-shrink-0 px-2">
-                                    <div class="rounded position-relative fruite-item">
-                                        <div class="fruite-img">
+                                <div class="product-card flex-shrink-0 px-2">
+                                    <div class="rounded position-relative lamota-item">
+                                        <div class="lamota-img">
                                             <img src="img/lamota2.jpeg" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
-                                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                            <h4>Tinctures</h4>
+                                        <div class="p-3 p-md-4 border border-secondary border-top-0 rounded-bottom">
+                                            <h5 class="mb-0">Preroll</h5>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-lg-4 col-xl-3 flex-shrink-0 px-2">
-                                    <div class="rounded position-relative fruite-item">
-                                        <div class="fruite-img">
+                                <div class="product-card flex-shrink-0 px-2">
+                                    <div class="rounded position-relative lamota-item">
+                                        <div class="lamota-img">
                                             <img src="img/lamota2.jpeg" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
-                                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                            <h4>Other (Combined Category)</h4>
+                                        <div class="p-3 p-md-4 border border-secondary border-top-0 rounded-bottom">
+                                            <h5 class="mb-0">Tinctures</h5>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>      
+                </div>
             </div>
         </div>
-        <!-- Fruits Shop End-->
+        <!-- lamota Shop End-->
          <!-- Featurs Section Start -->
         <div class="container-fluid featurs py-5">
             <div class="container py-5">
@@ -554,48 +609,53 @@
         <script src="js/main.js"></script>
         <script>
             window.addEventListener("scroll", () => {
-            const scrollValue = window.scrollY;
-            const leftImg = document.querySelector('.left');
-            const rightImg = document.querySelector('.right');
-            const centerBtn = document.getElementById('centerBtn');
+                const scrollValue = window.scrollY;
+                const leftImg = document.querySelector('.left');
+                const rightImg = document.querySelector('.right');
+                const centerBtn = document.getElementById('centerBtn');
 
-            // Move images away from center
-            const moveAmount = scrollValue * 0.4;
-            leftImg.style.transform = `translateX(-${moveAmount}px)`;
-            rightImg.style.transform = `translateX(${moveAmount}px)`;
+                const moveAmount = scrollValue * 0.4;
+                leftImg.style.transform = `translateX(-${moveAmount}px)`;
+                rightImg.style.transform = `translateX(${moveAmount}px)`;
 
-            // Show button when they've moved far enough apart
-            if (moveAmount > 100) {
-                centerBtn.style.opacity = 1;
-                centerBtn.style.zIndex = 2;
-            } else {
-                centerBtn.style.opacity = 0;
-                centerBtn.style.zIndex = 0;
-            }
+                if (moveAmount > 100) {
+                    centerBtn.style.opacity = 1;
+                    centerBtn.style.zIndex = 2;
+                } else {
+                    centerBtn.style.opacity = 0;
+                    centerBtn.style.zIndex = 0;
+                }
             });
         </script>
         <script>
-        const sliderTrack = document.getElementById("sliderTrack");
-        const prevBtn = document.getElementById("prevBtn");
-        const nextBtn = document.getElementById("nextBtn");
+            const sliderTrack = document.getElementById("sliderTrack");
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
 
-        let currentIndex = 0;
-        const itemWidth = sliderTrack.children[0].offsetWidth + 16; // item width + padding
+            let currentIndex = 0;
 
-        prevBtn.addEventListener("click", () => {
-            if (currentIndex > 0) {
-            currentIndex--;
-            sliderTrack.style.transform = `translateX(-${itemWidth * currentIndex}px)`;
+            function scrollToCard(index) {
+                const item = sliderTrack.children[index];
+                if (item) {
+                const offsetLeft = item.offsetLeft;
+                sliderTrack.scrollTo({ left: offsetLeft, behavior: 'smooth' });
+                }
             }
-        });
 
-        nextBtn.addEventListener("click", () => {
-            const maxIndex = sliderTrack.children.length - 1;
-            if (currentIndex < maxIndex) {
-            currentIndex++;
-            sliderTrack.style.transform = `translateX(-${itemWidth * currentIndex}px)`;
-            }
-        });
+            prevBtn.addEventListener("click", () => {
+                if (currentIndex > 0) {
+                currentIndex--;
+                scrollToCard(currentIndex);
+                }
+            });
+
+            nextBtn.addEventListener("click", () => {
+                const maxIndex = sliderTrack.children.length - 1;
+                if (currentIndex < maxIndex) {
+                currentIndex++;
+                scrollToCard(currentIndex);
+                }
+            });
         </script>
     </body>
 </html>
