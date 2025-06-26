@@ -20,15 +20,6 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
-        <!-- Leaflet CSS -->
-        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-        <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
-        <style>
-            #map {
-            height: 500px;
-            width: 100%;
-            }
-        </style>
     </head>
     <body>
         <!-- Spinner Start -->
@@ -90,7 +81,7 @@
                     </div>
                     <div class="modal-body d-flex align-items-center">
                         <div class="input-group w-75 mx-auto d-flex">
-                            <input type="search" class="form-control p-3" placeholder="" aria-describedby="search-icon-1">
+                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
                             <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
                         </div>
                     </div>
@@ -100,29 +91,23 @@
         <!-- Modal Search End -->
         <!-- Single Page Header start -->
         <div class="py-5">
-            <h1 class="text-center text-dark display-6">About</h1>
         </div>
         <!-- Single Page Header End -->
-        <!-- Contact Start -->
-        <div class="container-fluid contact py-5">
-            <div class="container py-5">
-                <div class="p-5 bg-light rounded">
-                    <div class="row g-4">
-                        <div class="col-12">
-                            <div class="text-center mx-auto" style="max-width: 700px;">
-                                <h1 class="text-primary">La Mota</h1>
-                                <p class="mb-4">La Mota is a group of high quality, OLCC licensed Recreational and Medical Marijuana stores located the state of Oregon. Currently carrying 50+ strains to choose from to suit all of your medicating needs. All of our products are tested for molds, mildews, and pesticides to ensure that we provide the highest quality medicine.</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <center><h1 class="text-primary">Shop Locations</h1></center>
-                            <div id="map"></div>
-                        </div>
+        <!-- 404 Start -->
+        <div class="container-fluid py-5">
+            <div class="container py-5 text-center">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <i class="bi bi-exclamation-triangle display-1 text-secondary"></i>
+                        <h1 class="display-1">503</h1>
+                        <h1 class="mb-4">Service Unavailable</h1>
+                        <p class="mb-4">We’re sorry, the page you have looked for is down.</p>
+                        <a class="btn border-secondary rounded-pill py-3 px-5" href="main.html">Go Back To Home</a>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Contact End -->
+        <!-- 404 End -->
         <!-- Footer Start -->
         <div class="container-fluid bg-white text-black-50 footer pt-5 mt-5">
             <div class="container py-5">
@@ -185,30 +170,39 @@
         </div>
         <!-- Footer End -->
         <!-- Copyright Start -->
-        <div class="container-fluid copyright bg-white py-4">
+        <div class="container-fluid copyright bg-dark py-4">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        <span class="text-light"><a href="#"><i class="fas fa-copyright text-dark me-2"></i>La Mota, All rights reserved 2025.</span>
+                        <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Your Site Name</a>, All right reserved.</span>
+                    </div>
+                    <div class="col-md-6 my-auto text-center text-md-end text-white">
+                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a class="border-bottom" href="https://themewagon.com">ThemeWagon</a>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Copyright End -->
+
+
+
         <!-- Back to Top -->
         <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
-        <!-- JavaScript Libraries -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/lightbox/js/lightbox.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        <!-- Template Javascript -->
-        <script src="js/main.js"></script>
-        <!-- Leaflet JS -->
-        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-        <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"></script>
-        <script src="js/leaflet.js"></script>
+
+        
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
     </body>
+
 </html>
