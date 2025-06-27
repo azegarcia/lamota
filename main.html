@@ -6,267 +6,29 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
-        <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet"> 
-        <!-- Icon Font Stylesheet -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-        <!-- Libraries Stylesheet -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-        <!-- Customized Bootstrap Stylesheet -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
+        <link href="css/custom.css" rel="stylesheet">
     </head>
-    <style>
-    .image-scroll-wrapper {
-        position: sticky;
-        top: 30%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        flex-wrap: nowrap;
-    }
-
-    .image-part {
-        width: 150px;
-        max-width: 35vw;
-        transition: transform 0.2s ease-out;
-        z-index: 1;
-    }
-
-    .left {
-        transform-origin: right center;
-    }
-
-    .right {
-        transform-origin: left center;
-    }
-
-    .center-button {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        opacity: 0;
-        transition: opacity 0.5s ease;
-        z-index: 0;
-    }
-
-    .shop-now-img {
-        width: 300px;
-        height: 100px;
-        max-width: 80vw;
-        max-height: 80px;
-    }
-
-    /* Mobile adjustments */
-    @media (max-width: 576px) {
-        .image-part {
-            width: 100px;
-        }
-        .shop-now-img {
-            width: 220px;
-            height: auto;
-        }
-    }
-
-    .transition {
-    transition: transform 0.5s ease;
-    }
-
-    .slider-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-    }
-
-    .product-card {
-    width: 250px; /* consistent width for swipe and scroll */
-    }
-
-    @media (max-width: 768px) {
-        .product-card {
-            width: 80vw;
-        }
-
-        .btn.btn-square, .btn.btn-secondary {
-            padding: 0.25rem 0.5rem;
-            font-size: 1rem;
-        }
-
-        .tab-class h1 {
-            font-size: 1.5rem;
-        }
-
-        .tab-class .nav {
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-    }
-    </style>
     <body>
-        <!-- Spinner Start -->
-        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="jumping-spinner" role="status">
-                <img src="/img/lamota.png" alt="Logo" width="60" height="60">
-            </div>
-        </div>
-        <!-- Spinner End -->
-        <!-- Navbar start -->
-        <div class="container-fluid fixed-top">
-            <div class="container topbar bg-primary d-none d-lg-block">
-                <div class="d-flex justify-content-between">
-                    <div class="top-info ps-2">
-                        <small class="me-3"></small>
-                        <small class="me-3"></small>
-                    </div>
-                    <div class="top-link pe-2">
-                        <a href="#" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>
-                        <a href="#" class="text-white"><small class="text-white ms-2">Sales and Refunds</small></a>
-                    </div>
-                </div>
-            </div>
-            <div class="container px-0">
-                <nav class="navbar navbar-light bg-white navbar-expand-xl">
-                    <a href="main.html" class="navbar-brand"><img src="img/lamota.png" height="60" width="60"></a>
-                    <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                        <span class="fa fa-bars text-primary"></span>
-                    </button>
-                    <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
-                        <div class="navbar-nav mx-auto">
-                            <a href="main.html" class="nav-item nav-link active">Home</a>
-                            <a href="shop.html" class="nav-item nav-link">Shop <i class="fa fa-cannabis"></i></a>
-                            <a href="careers.html" class="nav-item nav-link">Careers</a>
-                            <a href="about.html" class="nav-item nav-link">About Us</a>
-                        </div>
-                        <div class="d-flex m-3 me-0">
-                            <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
-                            <a href="cart.html" class="position-relative me-4 my-auto">
-                                <i class="fa fa-shopping-bag fa-2x"></i>
-                                <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">0</span>
-                            </a>
-                            <a href="login.html" class="position-relative me-4 my-auto">
-                                <i class="fa fa-user fa-2x"></i>
-                            </a>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <!-- Navbar End -->
-        <!-- Modal Search Start -->
-        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content rounded-0">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body d-flex align-items-center">
-                        <div class="input-group w-75 mx-auto d-flex">
-                            <input type="search" class="form-control p-3" placeholder="" aria-describedby="search-icon-1">
-                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal Search End -->
-        <!-- Hero Start -->
-        <div class="container-fluid py-5 mb-5 hero-header">
-            <div class="container py-5">
-                <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row g-5 align-items-center">
-                                <div class="col-md-12 col-lg-7">
-                                    <h3 class="mb-5 display-3 text-primary">High Standards, Higher Satisfaction</h3>
-                                    <h4 class="lead">Weed Love to Serve You!</h4>
-                                </div>
-                                <div class="col-md-12 col-lg-5">
-                                    <video width="100%" height="auto" autoplay loop muted controls class="rounded">
-                                        <source src="img/preview.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="carousel-item">
-                            <div class="row g-5 align-items-center">
-                                <div class="col-md-12 col-lg-7">
-                                    <h3 class="mb-5 display-3 text-primary">Get Rewards at La Mota</h3>
-                                    <p class="lead">Earn points and save more with every purchase!</p>
-                                </div>
-                                <div class="col-md-12 col-lg-5">
-                                    <img src="img/lamota.png" class="img-fluid rounded" alt="Rewards Banner">
-                                </div>
-                            </div>
-                        </div> -->
-                    </div>
-                    <!-- Carousel Controls -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Hero End -->
-         <!-- Fact Start -->
-        <div class="container-fluid py-5">
-            <div class="container">
-                <div class="bg-light p-5 rounded">
-                    <div class="row g-4 justify-content-center">
-                        <div class="col-md-6 col-lg-6 col-xl-4">
-                            <div class="counter bg-white rounded p-5">
-                                <i class="fa fa-store text-secondary"></i>
-                                <h4>Stores</h4>
-                                <h3>28</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-6 col-xl-4">
-                            <div class="counter bg-white rounded p-5">
-                                <i class="fa fa-users text-secondary"></i>
-                                <h4>Friendly staff</h4>
-                                <!-- <h1>99.8%</h1> -->
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-6 col-xl-4">
-                            <div class="counter bg-white rounded p-5">
-                                <i class="fa fa-cannabis text-secondary"></i>
-                                <h4>Huge Selection</h4>
-                                <h5>With over 50 different strains</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Fact Start -->
-        <!-- SECTION CONTAINER -->
-        <div class="container-fluid py-5" style="height: 100vh; position: relative; overflow: hidden; background: #f8f9fa;">
-            <!-- Image wrapper (sticky) -->
-            <div class="image-scroll-wrapper">
-                <img src="img/lighter2.png" class="image-part left" alt="Lighter" style="width:350px;height:300px;">
-                <img src="img/cartoon.png" class="image-part right" alt="Hand" style="width:300px;height:300px;">
-
-                <!-- CENTER BUTTON -->
-                <a href="/shop.html" id="centerBtn" class="btn px-3 text-primary center-button">
-                    <img src="img/shopnow.png" class="shop-now-img" alt="Shop Now" style="width:300px;height:100px;">
-                </a>
-            </div>
-        </div>
-        <!-- lamota Shop Start-->
-        <div class="container-fluid lamota py-5">
+        <div id="spinner"></div>
+        <div id="navbar"></div>
+        <div id="modalsearch"></div>
+        <div id="headline"></div>
+        <hr style="width: 100%; border: none; border-top: 2px solid white;">
+        <!-- Lamota Shop Start-->
+        <div class="container-fluid lamota py-5 text-white-section">
             <div class="container py-5">
                 <div class="tab-class text-center">
                     <div class="row g-4 align-items-center">
@@ -292,7 +54,7 @@
                                 <div class="product-card flex-shrink-0 px-2">
                                     <div class="rounded position-relative lamota-item">
                                         <div class="lamota-img">
-                                            <img src="img/lamota2.jpeg" class="img-fluid w-100 rounded-top" alt="">
+                                            <img src="img/1.png" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
                                         <div class="p-3 p-md-4 border border-secondary border-top-0 rounded-bottom">
                                             <h5 class="mb-0">Bulk Flower</h5>
@@ -302,7 +64,7 @@
                                 <div class="product-card flex-shrink-0 px-2">
                                     <div class="rounded position-relative lamota-item">
                                         <div class="lamota-img">
-                                            <img src="img/lamota2.jpeg" class="img-fluid w-100 rounded-top" alt="">
+                                            <img src="img/1.png" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
                                         <div class="p-3 p-md-4 border border-secondary border-top-0 rounded-bottom">
                                             <h5 class="mb-0">Concentrates</h5>
@@ -312,7 +74,7 @@
                                 <div class="product-card flex-shrink-0 px-2">
                                     <div class="rounded position-relative lamota-item">
                                         <div class="lamota-img">
-                                            <img src="img/lamota2.jpeg" class="img-fluid w-100 rounded-top" alt="">
+                                            <img src="img/1.png" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
                                         <div class="p-3 p-md-4 border border-secondary border-top-0 rounded-bottom">
                                             <h5 class="mb-0">Edibles</h5>
@@ -322,7 +84,7 @@
                                 <div class="product-card flex-shrink-0 px-2">
                                     <div class="rounded position-relative lamota-item">
                                         <div class="lamota-img">
-                                            <img src="img/lamota2.jpeg" class="img-fluid w-100 rounded-top" alt="">
+                                            <img src="img/1.png" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
                                         <div class="p-3 p-md-4 border border-secondary border-top-0 rounded-bottom">
                                             <h5 class="mb-0">Extracts</h5>
@@ -332,7 +94,7 @@
                                 <div class="product-card flex-shrink-0 px-2">
                                     <div class="rounded position-relative lamota-item">
                                         <div class="lamota-img">
-                                            <img src="img/lamota2.jpeg" class="img-fluid w-100 rounded-top" alt="">
+                                            <img src="img/1.png" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
                                         <div class="p-3 p-md-4 border border-secondary border-top-0 rounded-bottom">
                                             <h5 class="mb-0">Infused Preroll</h5>
@@ -342,7 +104,7 @@
                                 <div class="product-card flex-shrink-0 px-2">
                                     <div class="rounded position-relative lamota-item">
                                         <div class="lamota-img">
-                                            <img src="img/lamota2.jpeg" class="img-fluid w-100 rounded-top" alt="">
+                                            <img src="img/1.png" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
                                         <div class="p-3 p-md-4 border border-secondary border-top-0 rounded-bottom">
                                             <h5 class="mb-0">Other (Combined Category)</h5>
@@ -352,7 +114,7 @@
                                 <div class="product-card flex-shrink-0 px-2">
                                     <div class="rounded position-relative lamota-item">
                                         <div class="lamota-img">
-                                            <img src="img/lamota2.jpeg" class="img-fluid w-100 rounded-top" alt="">
+                                            <img src="img/1.png" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
                                         <div class="p-3 p-md-4 border border-secondary border-top-0 rounded-bottom">
                                             <h5 class="mb-0">Paraphernalia</h5>
@@ -362,7 +124,7 @@
                                 <div class="product-card flex-shrink-0 px-2">
                                     <div class="rounded position-relative lamota-item">
                                         <div class="lamota-img">
-                                            <img src="img/lamota2.jpeg" class="img-fluid w-100 rounded-top" alt="">
+                                            <img src="img/1.png" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
                                         <div class="p-3 p-md-4 border border-secondary border-top-0 rounded-bottom">
                                             <h5 class="mb-0">Preroll</h5>
@@ -372,7 +134,7 @@
                                 <div class="product-card flex-shrink-0 px-2">
                                     <div class="rounded position-relative lamota-item">
                                         <div class="lamota-img">
-                                            <img src="img/lamota2.jpeg" class="img-fluid w-100 rounded-top" alt="">
+                                            <img src="img/1.png" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
                                         <div class="p-3 p-md-4 border border-secondary border-top-0 rounded-bottom">
                                             <h5 class="mb-0">Tinctures</h5>
@@ -385,278 +147,22 @@
                 </div>
             </div>
         </div>
-        <!-- lamota Shop End-->
-         <!-- Featurs Section Start -->
-        <div class="container-fluid featurs py-5">
-            <div class="container py-5">
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-3">
-                        <div class="featurs-item text-center rounded bg-light p-4">
-                            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
-                                <i class="fas fa-car-side fa-3x text-dark"></i>
-                            </div>
-                            <div class="featurs-content text-center">
-                                <h5>Free Shipping</h5>
-                                <p class="mb-0">Free on order over $300</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="featurs-item text-center rounded bg-light p-4">
-                            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
-                                <i class="fas fa-user-shield fa-3x text-dark"></i>
-                            </div>
-                            <div class="featurs-content text-center">
-                                <h5>Security Payment</h5>
-                                <p class="mb-0">100% security payment</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="featurs-item text-center rounded bg-light p-4">
-                            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
-                                <i class="fas fa-exchange-alt fa-3x text-dark"></i>
-                            </div>
-                            <div class="featurs-content text-center">
-                                <h5>30 Day Return</h5>
-                                <p class="mb-0">30 day money guarantee</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="featurs-item text-center rounded bg-light p-4">
-                            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
-                                <i class="fa fa-phone-alt fa-3x text-dark"></i>
-                            </div>
-                            <div class="featurs-content text-center">
-                                <h5>24/7 Support</h5>
-                                <p class="mb-0">Support every time fast</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Featurs Section End -->
-        <!-- Tastimonial Start -->
-        <div class="container-fluid testimonial py-5">
-            <div class="container py-5">
-                <div class="testimonial-header text-center">
-                    <h4 class="text-primary">Our Testimonial</h4>
-                    <h1 class="display-5 mb-5 text-dark">Our Clients Saying!</h1>
-                </div>
-                <div class="owl-carousel testimonial-carousel">
-                    <div class="testimonial-item img-border-radius bg-light rounded p-4">
-                        <div class="position-relative">
-                            <i class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
-                            <div class="mb-4 pb-4 border-bottom border-secondary">
-                                <p class="mb-0">Very nice! Will buy again!
-                                </p>
-                            </div>
-                            <div class="d-flex align-items-center flex-nowrap">
-                                <div class="bg-secondary rounded">
-                                    <img src="img/icon-black.png" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
-                                </div>
-                                <div class="ms-4 d-block">
-                                    <h4 class="text-dark">John Smith</h4>
-                                    <!-- <p class="m-0 pb-3">Profession</p> -->
-                                    <div class="d-flex pe-5">
-                                        <i class="fas fa-star text-primary"></i>
-                                        <i class="fas fa-star text-primary"></i>
-                                        <i class="fas fa-star text-primary"></i>
-                                        <i class="fas fa-star text-primary"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item img-border-radius bg-light rounded p-4">
-                        <div class="position-relative">
-                            <i class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
-                            <div class="mb-4 pb-4 border-bottom border-secondary">
-                                <p class="mb-0">Very fast transaction! I got my item so fast!
-                                </p>
-                            </div>
-                            <div class="d-flex align-items-center flex-nowrap">
-                                <div class="bg-secondary rounded">
-                                    <img src="img/icon-black.png" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
-                                </div>
-                                <div class="ms-4 d-block">
-                                    <h4 class="text-dark">Robert Clark</h4>
-                                    <!-- <p class="m-0 pb-3">Profession</p> -->
-                                    <div class="d-flex pe-5">
-                                        <i class="fas fa-star text-primary"></i>
-                                        <i class="fas fa-star text-primary"></i>
-                                        <i class="fas fa-star text-primary"></i>
-                                        <i class="fas fa-star text-primary"></i>
-                                        <i class="fas fa-star text-primary"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item img-border-radius bg-light rounded p-4">
-                        <div class="position-relative">
-                            <i class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
-                            <div class="mb-4 pb-4 border-bottom border-secondary">
-                                <p class="mb-0">Quality products! I never had a hard time getting them!
-                                </p>
-                            </div>
-                            <div class="d-flex align-items-center flex-nowrap">
-                                <div class="bg-secondary rounded">
-                                    <img src="img/icon-black.png" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
-                                </div>
-                                <div class="ms-4 d-block">
-                                    <h4 class="text-dark">Jane Smith</h4>
-                                    <!-- <p class="m-0 pb-3">Profession</p> -->
-                                    <div class="d-flex pe-5">
-                                        <i class="fas fa-star text-primary"></i>
-                                        <i class="fas fa-star text-primary"></i>
-                                        <i class="fas fa-star text-primary"></i>
-                                        <i class="fas fa-star text-primary"></i>
-                                        <i class="fas fa-star text-primary"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Tastimonial End -->
-        <!-- Footer Start -->
-        <div class="container-fluid bg-white text-black-50 footer pt-5 mt-5">
-            <div class="container py-5">
-                <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(0, 0, 0, 0.5) ;">
-                    <div class="row g-4">
-                        <div class="col-lg-3">
-                            <a href="#">
-                                <h1 class="text-primary mb-0">La Mota</h1>
-                                <p class="text-secondary mb-0">Quality products</p>
-                            </a>
-                        </div>
-                        <div class="col-lg-6">
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="d-flex justify-content-end pt-3">
-                                <a class="btn  btn-outline-secondary me-2 btn-md-square rounded-circle" href="https://www.instagram.com/lamota"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row g-5">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-item">
-                            <h4 class="text-dark mb-3">Why People Like us!</h4>
-                            <p class="mb-4">La Mota is a group of high quality, OLCC licensed Recreational and Medical Marijuana stores located the state of Oregon.
-                            </p>
-                            <a href="about.html" class="btn border-secondary py-2 px-4 rounded-pill text-primary">Read More</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="d-flex flex-column text-start footer-item">
-                            <h4 class="text-dark mb-3">Shop Info</h4>
-                            <p class="mb-4">Currently carrying 50+ strains to choose from to suit all of your medicating needs. All of our products are tested for molds, mildews, and pesticides to ensure that we provide the highest quality medicine.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="d-flex flex-column text-start footer-item">
-                            <h4 class="text-dark mb-3"></h4>
-                            <a class="btn-link" href=""></a>
-                            <a class="btn-link" href=""></a>
-                            <a class="btn-link" href=""></a>
-                            <a class="btn-link" href=""></a>
-                            <a class="btn-link" href=""></a>
-                            <a class="btn-link" href=""></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-item">
-                            <h4 class="text-dark mb-3">Contact</h4>
-                            <p>Address: 1234 Example Rd, 1234</p>
-                            <p>Email: Example@gmail.com</p>
-                            <p>Phone: +0123 4567 8910</p>
-                            <p>Payment Accepted</p>
-                            <img src="img/payment.png" class="img-fluid" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Footer End -->
-        <!-- Copyright Start -->
-        <div class="container-fluid copyright bg-white py-4">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        <span class="text-light"><a href="#"><i class="fas fa-copyright text-dark me-2"></i>La Mota, All rights reserved 2025.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Copyright End -->
+        <!-- Lamota Shop End-->
+        <hr style="width: 100%; border: none; border-top: 2px solid white;">
+        <div id="features"></div>
+        <hr style="width: 100%; border: none; border-top: 2px solid white;">
+        <div id="footer"></div>
+        <div id="copyright"></div>
         <!-- Back to Top -->
         <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
-        <!-- JavaScript Libraries -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="lib/easing/easing.min.js"></script>
         <script src="lib/waypoints/waypoints.min.js"></script>
         <script src="lib/lightbox/js/lightbox.min.js"></script>
         <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        <!-- Template Javascript -->
         <script src="js/main.js"></script>
-        <script>
-            window.addEventListener("scroll", () => {
-                const scrollValue = window.scrollY;
-                const leftImg = document.querySelector('.left');
-                const rightImg = document.querySelector('.right');
-                const centerBtn = document.getElementById('centerBtn');
-
-                const moveAmount = scrollValue * 0.4;
-                leftImg.style.transform = `translateX(-${moveAmount}px)`;
-                rightImg.style.transform = `translateX(${moveAmount}px)`;
-
-                if (moveAmount > 100) {
-                    centerBtn.style.opacity = 1;
-                    centerBtn.style.zIndex = 2;
-                } else {
-                    centerBtn.style.opacity = 0;
-                    centerBtn.style.zIndex = 0;
-                }
-            });
-        </script>
-        <script>
-            const sliderTrack = document.getElementById("sliderTrack");
-            const prevBtn = document.getElementById("prevBtn");
-            const nextBtn = document.getElementById("nextBtn");
-
-            let currentIndex = 0;
-
-            function scrollToCard(index) {
-                const item = sliderTrack.children[index];
-                if (item) {
-                const offsetLeft = item.offsetLeft;
-                sliderTrack.scrollTo({ left: offsetLeft, behavior: 'smooth' });
-                }
-            }
-
-            prevBtn.addEventListener("click", () => {
-                if (currentIndex > 0) {
-                currentIndex--;
-                scrollToCard(currentIndex);
-                }
-            });
-
-            nextBtn.addEventListener("click", () => {
-                const maxIndex = sliderTrack.children.length - 1;
-                if (currentIndex < maxIndex) {
-                currentIndex++;
-                scrollToCard(currentIndex);
-                }
-            });
-        </script>
+        <script src="js/navi.js"></script>
+        <script src="js/carousel.js"></script>
     </body>
 </html>

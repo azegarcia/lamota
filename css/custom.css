@@ -1,0 +1,249 @@
+/* Body */
+body {
+    padding-top: 80px; /* Adjust based on actual navbar height */
+}
+
+.fixed-top {
+    z-index: 1030; /* Bootstrap default */
+}
+
+@media (max-width: 1199.98px) {
+        .navbar-nav a {
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    }
+
+/* Navbar Start */
+.custom-navbar {
+    background-color: #000 !important;
+    width: 100%;
+}
+
+.custom-navbar .nav-link,
+.custom-navbar .fa,
+.custom-navbar .fas {
+    color: #fff !important;
+    transition: color 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .fa:hover,
+.custom-navbar .fas:hover {
+    color: #ccc !important;
+}
+
+.btn-search i {
+    color: #000 !important;
+}
+
+.btn-search:hover i {
+    color: #666 !important;
+}
+
+/* Hero Start */
+.hero-dark {
+    background-color: #000 !important;
+    color: #fff;
+}
+
+.hero-dark h1,
+.hero-dark h2,
+.hero-dark h3,
+.hero-dark h4,
+.hero-dark p {
+    color: #fff !important;
+}
+
+@media (max-width: 576px) {
+    .hero-header h3 {
+        font-size: 1.75rem;
+    }
+    .hero-header h4 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Lamota Shop Start */
+.text-white-section {
+    background-color: #000; /* Optional: make background black if needed */
+    color: #fff;
+}
+
+.text-white-section h1,
+.text-white-section h2,
+.text-white-section h3,
+.text-white-section h4,
+.text-white-section h5,
+.text-white-section h6,
+.text-white-section p,
+.text-white-section li,
+.text-white-section span,
+.text-white-section a {
+    color: #fff !important;
+}
+
+.text-cyan {
+    background-color: #000000; /* Optional: make background black if needed */
+    color: #2de1de;
+}
+
+.text-purple {
+    background-color: #000000; /* Optional: make background black if needed */
+    color: #6d11ab;
+}
+
+.text-black-cyan-bg {
+    background-color: #2de1de; /* Optional: make background black if needed */
+    color: black;
+}
+
+/* Facts */
+.counter i {
+    color: #fff !important;
+}
+
+.counter h3, .counter h4, .counter h5 {
+    color: #fff !important;
+}
+
+/* Features */
+.featurs {
+    background-color: #000;
+    color: #fff;
+}
+
+.featurs .featurs-item {
+    background-color: black;
+    color: #fff;
+}
+
+.featurs .featurs-item i {
+    color: #fff !important;
+}
+
+/* Testimonial */
+.testimonial {
+    background-color: #000 !important;
+    color: #fff;
+}
+
+.testimonial .testimonial-item {
+    background-color: #1a1a1a;
+}
+
+.testimonial i,
+.testimonial h4,
+.testimonial h1,
+.testimonial p {
+    color: #fff !important;
+}
+
+/* Footer and Copyright */
+.text-white-footer {
+    color: #fff;
+}
+
+.text-white-footer h1,
+.text-white-footer h4,
+.text-white-footer p,
+.text-white-footer a,
+.text-white-footer span {
+    color: #fff !important;
+}
+
+.text-white-footer .btn-outline-light:hover {
+    background-color: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+
+
+/*===================================================== Random ones  ==============================================================*/
+.image-scroll-wrapper {
+        position: sticky;
+        top: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        flex-wrap: nowrap;
+    }
+
+    .image-part {
+        width: 150px;
+        max-width: 35vw;
+        transition: transform 0.2s ease-out;
+        z-index: 1;
+    }
+
+    .left {
+        transform-origin: right center;
+    }
+
+    .right {
+        transform-origin: left center;
+    }
+
+    .center-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        z-index: 0;
+    }
+
+    .shop-now-img {
+        width: 300px;
+        height: 100px;
+        max-width: 80vw;
+        max-height: 80px;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 576px) {
+        .image-part {
+            width: 100px;
+        }
+        .shop-now-img {
+            width: 220px;
+            height: auto;
+        }
+    }
+
+    .transition {
+    transition: transform 0.5s ease;
+    }
+
+    .slider-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    }
+
+    .product-card {
+    width: 250px; /* consistent width for swipe and scroll */
+    }
+
+    @media (max-width: 768px) {
+        .product-card {
+            width: 80vw;
+        }
+
+        .btn.btn-square, .btn.btn-secondary {
+            padding: 0.25rem 0.5rem;
+            font-size: 1rem;
+        }
+
+        .tab-class h1 {
+            font-size: 1.5rem;
+        }
+
+        .tab-class .nav {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
