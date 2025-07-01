@@ -22,6 +22,12 @@ fetch('headline.html')
     document.getElementById('headline').innerHTML = data;
   });
 
+fetch('categories.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('categories').innerHTML = data;
+  });
+
 fetch('features.html')
   .then(res => res.text())
   .then(data => {

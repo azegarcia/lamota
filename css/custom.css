@@ -15,6 +15,10 @@ body {
     }
 
 /* Navbar Start */
+#navbarCollapse {
+    background-color: black !important;
+}
+
 .custom-navbar {
     background-color: #000 !important;
     width: 100%;
