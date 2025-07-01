@@ -1,9 +1,3 @@
-fetch('spinner.html')
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById('spinner').innerHTML = data;
-  });
-
 fetch('navbar.html')
   .then(res => res.text())
   .then(data => {
