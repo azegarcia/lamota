@@ -16,10 +16,10 @@ fetch('headline.html')
     document.getElementById('headline').innerHTML = data;
   });
 
-fetch('categories.html')
+fetch('bestsellers.html')
   .then(res => res.text())
   .then(data => {
-    document.getElementById('categories').innerHTML = data;
+    document.getElementById('bestsellers').innerHTML = data;
   });
 
 fetch('features.html')
@@ -38,4 +38,10 @@ fetch('copyright.html')
   .then(res => res.text())
   .then(data => {
     document.getElementById('copyright').innerHTML = data;
+  });
+
+fetch('category.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('category').innerHTML = data;
   });
