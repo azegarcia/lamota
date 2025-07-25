@@ -28,6 +28,12 @@ fetch('features.html')
     document.getElementById('features').innerHTML = data;
   });
 
+fetch('items.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('items').innerHTML = data;
+  });
+
 fetch('footer.html')
   .then(res => res.text())
   .then(data => {
