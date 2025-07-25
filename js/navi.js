@@ -22,6 +22,11 @@ fetch('bestsellers.html')
     document.getElementById('bestsellers').innerHTML = data;
   });
 
+fetch('stores.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('stores').innerHTML = data;
+  });
 fetch('features.html')
   .then(res => res.text())
   .then(data => {
