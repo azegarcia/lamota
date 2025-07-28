@@ -1,12 +1,12 @@
-const map = L.map('map').setView([45.493163254654554, -122.85291944047754], 12); // fallback center (Beaverton Dispensary) 
+const map = L.map('map').setView([45.493163254654554, -122.85291944047754], 12);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
 let userLatLng = null;
-let routingControl = null;
 
+// Try to get user's location
 navigator.geolocation.getCurrentPosition(
     position => {
     userLatLng = L.latLng(position.coords.latitude, position.coords.longitude);
@@ -14,10 +14,11 @@ navigator.geolocation.getCurrentPosition(
     L.marker(userLatLng).addTo(map).bindPopup("You are here").openPopup();
     },
     () => {
-    alert("Could not get your location. Defaulting to Manila.");
+    alert("Could not get your location. Defaulting to Beaverton.");
     }
 );
 
+// Custom icon
 const defaultIcon = L.icon({
     iconUrl: 'img/lamota.png',
     iconSize: [35, 41],
@@ -56,34 +57,15 @@ const stores = [
     { name: "Taylor's Ferry Rd, Portland Store", lat: 45.46320067240275, lng: -122.6903616423283 },
 ];
 
-// Add store markers
+// Add store markers with Google Maps redirect on click
 stores.forEach(store => {
     const marker = L.marker([store.lat, store.lng], { icon: defaultIcon }).addTo(map);
-    marker.bindPopup(`<strong>${store.name}</strong><br>Click to get directions`);
+    marker.bindPopup(`<strong>${store.name}</strong><br>Click to open in Google Maps`);
 
     marker.on('click', () => {
-    if (!userLatLng) {
-        alert("Waiting for your location. Please allow GPS.");
-        return;
-    }
-
-    // Remove existing route
-    if (routingControl) {
-        map.removeControl(routingControl);
-    }
-
-    // Create new route from user to store
-    routingControl = L.Routing.control({
-        waypoints: [
-        userLatLng,
-        L.latLng(store.lat, store.lng)
-        ],
-        lineOptions: {
-        styles: [{ color: 'blue', weight: 5 }]
-        },
-        draggableWaypoints: false,
-        addWaypoints: false,
-        routeWhileDragging: false
-    }).addTo(map);
+    const mapsUrl = userLatLng
+        ? `https://www.google.com/maps/dir/?api=1&origin=${userLatLng.lat},${userLatLng.lng}&destination=${store.lat},${store.lng}`
+        : `https://www.google.com/maps?q=${store.lat},${store.lng}`;
+    window.open(mapsUrl, '_blank');
     });
 });
