@@ -4,11 +4,11 @@ fetch('navbar.html')
     document.getElementById('navbar').innerHTML = data;
   });
 
-fetch('modalsearch.html')
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById('modalsearch').innerHTML = data;
-  });
+// fetch('modalsearch.html')
+//   .then(res => res.text())
+//   .then(data => {
+//     document.getElementById('modalsearch').innerHTML = data;
+//   });
 
 fetch('headline.html')
   .then(res => res.text())

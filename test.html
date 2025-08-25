@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fetch Firestore Data</title>
+  <!-- Firebase App (the core Firebase SDK) -->
+  <script type="module">
+    // Import Firebase modules directly
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js";
+
+    // Firebase config (replace with your actual config)
+    const firebaseConfig = {
+        apiKey: "AIzaSyB7gqHKTg_zu19pUOoWJRMJT1th6eLBAa0",
+        authDomain: "lamotapos-f25b9.firebaseapp.com",
+        projectId: "lamotapos-f25b9",
+        storageBucket: "lamotapos-f25b9.appspot.com",
+    //   messagingSenderId: "SENDER_ID",
+    //   appId: "APP_ID"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Reference a Firestore collection
+    const querySnapshot = await getDocs(collection(db, "Products"));
+
+    // Display data
+    const list = document.createElement("ul");
+    querySnapshot.forEach((doc) => {
+      const li = document.createElement("li");
+      li.textContent = JSON.stringify(doc.data());
+      list.appendChild(li);
+    });
+    document.body.appendChild(list);
+  </script>
+</head>
+<body>
+  <h1>Firestore Data</h1>
+</body>
+</html>
