@@ -58,7 +58,7 @@
                                                 <p>Caked, 1g Extract</p>
                                                 <p class="text-white fs-5 fw-bold mb-0">$14.00</p>
                                                 <br>
-                                                <button class="btn border border-primary rounded-pill px-3 text-white add-to-cart" data-name="Runtz Punch" data-desc="Caked, 1g Extract">
+                                                <button id="addToCartBtn1" class="btn border border-primary rounded-pill px-3 text-white" data-product-name="Runtz Punch" data-product-desc="Caked, 1g Extract" data-product-price="14.00">
                                                     <i class="fa fa-shopping-bag me-2 text-white-section"></i> Add to cart
                                                 </button>
                                             </div>
@@ -74,7 +74,7 @@
                                                 <p>Caked, 1g Extract</p>
                                                 <p class="text-white fs-5 fw-bold mb-0">$20.00</p>
                                                 <br>
-                                                <button class="btn border border-primary rounded-pill px-3 text-white add-to-cart" data-name="Mendo Breath" data-desc="Caked, 1g Extract">
+                                                <button id="addToCartBtn2" class="btn border border-primary rounded-pill px-3 text-white" data-product-name="Mendo Breath" data-product-desc="Caked, 1g Extract" data-product-price="20.00">
                                                     <i class="fa fa-shopping-bag me-2 text-white-section"></i> Add to cart
                                                 </button>
                                             </div>
@@ -90,7 +90,7 @@
                                                 <p>Caked, 1g Extract</p>
                                                 <p class="text-white fs-5 fw-bold mb-0">$20.00</p>
                                                 <br>
-                                                <button class="btn border border-primary rounded-pill px-3 text-white add-to-cart" data-name="Black Magic" data-desc="Caked, 1g Extract">
+                                                <button id="addToCartBtn3" class="btn border border-primary rounded-pill px-3 text-white" data-product-name="Black Magic" data-product-desc="Caked, 1g Extract" data-product-price="20.00">
                                                     <i class="fa fa-shopping-bag me-2 text-white-section"></i> Add to cart
                                                 </button>
                                             </div>
@@ -106,7 +106,7 @@
                                                 <p>Bubble's Hash, 1g Moonrocks</p>
                                                 <p class="text-white fs-5 fw-bold mb-0">$20.00</p>
                                                 <br>
-                                                <button class="btn border border-primary rounded-pill px-3 text-white add-to-cart" data-name="Guava Gelato" data-desc="Bubble's Hash, 1g Moonrocks">
+                                                <button id="addToCartBtn4" class="btn border border-primary rounded-pill px-3 text-white" data-product-name="Guava Gelato" data-product-desc="Bubble's Hash, 1g Moonrocks" data-product-price="20.00">
                                                     <i class="fa fa-shopping-bag me-2 text-white-section"></i> Add to cart
                                                 </button>
                                             </div>
@@ -120,6 +120,10 @@
             </div>      
         </div>
         <hr style="width: 100%; border: none; border-top: 2px solid white;">
+        <h2>Shopping Cart (testing)</h2>
+        <ul id="cartItems">
+        </ul>
+        <p>Total: $<span id="cartTotal">0.00</span></p>
         <div id="features"></div>
         <hr style="width: 100%; border: none; border-top: 2px solid white;">
         <div id="footer"></div>
@@ -131,9 +135,9 @@
         <script src="lib/waypoints/waypoints.min.js"></script>
         <script src="lib/lightbox/js/lightbox.min.js"></script>
         <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="js/bestseller.js"></script>
         <script src="js/main.js"></script>
         <script src="js/navi.js"></script>
-        <script src="js/addtocart.js"></script>
         <!-- <script src="js/carousel.js"></script> -->
     </body>
 </html>

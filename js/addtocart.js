@@ -1,19 +1,38 @@
-let cart = [];
-const cartCountEl = document.getElementById('cart-count');
+document.addEventListener("DOMContentLoaded", function () {
+    // Initialize cart safely
+    let cart = [];
 
-console.log(cartCountEl)
+    try {
+        const storedCart = JSON.parse(localStorage.getItem('cart'));
+        cart = Array.isArray(storedCart) ? storedCart : [];
+    } catch (error) {
+        console.error("Failed to parse cart from localStorage:", error);
+        cart = [];
+    }
 
-// Add to cart buttons
-document.querySelectorAll('.add-to-cart').forEach(button => {
-button.addEventListener('click', function () {
-    const name = this.getAttribute('data-name');
-    const desc = this.getAttribute('data-desc');
+    // Ensure element exists before accessing
+    const cartCount = document.getElementById('cart-count');
+    if (cartCount) {
+        cartCount.textContent = cart.length;
+    }
 
-    // Push to cart array
-    cart.push({ name, desc });
+    // Add to cart buttons
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
 
-    // Update cart count
-    cartCountEl.textContent = cart.length;
-    alert(`${name} added to cart!`);
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const name = button.getAttribute('data-name');
+            const desc = button.getAttribute('data-desc');
+            const priceText = button.parentElement.querySelector('.fs-5').textContent.replace('$', '');
+            const price = parseFloat(priceText);
+
+            const item = { name, desc, price };
+            cart.push(item);
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            if (cartCount) {
+                cartCount.textContent = cart.length;
+            }
+        });
     });
 });

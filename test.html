@@ -9,30 +9,42 @@
     import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js";
 
     // Firebase config (replace with your actual config)
-    const firebaseConfig = {
-        apiKey: "AIzaSyB7gqHKTg_zu19pUOoWJRMJT1th6eLBAa0",
-        authDomain: "lamotapos-f25b9.firebaseapp.com",
-        projectId: "lamotapos-f25b9",
-        storageBucket: "lamotapos-f25b9.appspot.com",
-    //   messagingSenderId: "SENDER_ID",
-    //   appId: "APP_ID"
-    };
+  const firebaseConfig = {
+      apiKey: "AIzaSyB7gqHKTg_zu19pUOoWJRMJT1th6eLBAa0",
+      authDomain: "lamotapos-f25b9.firebaseapp.com",
+      projectId: "lamotapos-f25b9",
+      storageBucket: "lamotapos-f25b9.appspot.com",
+      // messagingSenderId: "SENDER_ID",
+      // appId: "APP_ID"
+  };
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
-    // Reference a Firestore collection
-    const querySnapshot = await getDocs(collection(db, "Products"));
+  // Fetch and display data
+  const querySnapshot = await getDocs(collection(db, "Products"));
 
-    // Display data
-    const list = document.createElement("ul");
-    querySnapshot.forEach((doc) => {
+  const list = document.createElement("ul");
+
+  querySnapshot.forEach((doc) => {
+      const data = doc.data(); // This is a plain JS object
       const li = document.createElement("li");
-      li.textContent = JSON.stringify(doc.data());
+
+      // Create a sublist for key-value pairs
+      const subList = document.createElement("ul");
+
+      for (const [key, value] of Object.entries(data)) {
+          const item = document.createElement("li");
+          item.textContent = `${key}: ${value}`;
+          subList.appendChild(item);
+      }
+
+      li.appendChild(subList);
       list.appendChild(li);
-    });
-    document.body.appendChild(list);
+  });
+
+  document.body.appendChild(list);
   </script>
 </head>
 <body>

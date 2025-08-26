@@ -3,7 +3,7 @@ import base64
 
 # === CONFIGURATION ===
 api_key = 'your-sandbox-api-key-here'
-base_url = 'https://sandbox-api-co.metrc.com'  # Change 'co' to your state if needed
+base_url = 'https://sandbox-api-or.metrc.com'  # 'Or' because of Oregon
 endpoint = '/facilities/v1'
 
 # === HEADERS ===

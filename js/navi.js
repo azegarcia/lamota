@@ -16,12 +16,6 @@ fetch('headline.html')
     document.getElementById('headline').innerHTML = data;
   });
 
-fetch('bestsellers.html')
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById('bestsellers').innerHTML = data;
-  });
-
 fetch('stores.html')
   .then(res => res.text())
   .then(data => {

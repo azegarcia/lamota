@@ -2,6 +2,8 @@
     <div class="container py-5">
         <h1 class="mb-4 text-white-section">Shopping Cart</h1>
         <div class="table-responsive text-white-section">
+            <div id="cart-items"></div>
+            <h3 id="total"></h3>
             <table class="table">
                 <thead>
                     <tr>
@@ -129,7 +131,7 @@
                         <h1 class="display-6 mb-4">Total</h1>
                         <div class="d-flex justify-content-between mb-4">
                             <h5 class="mb-0 me-4">Subtotal:</h5>
-                            <!-- <p class="mb-0">$84.00</p> -->
+                            $<span id="cartTotal">0.00</span>
                         </div>
                         <div class="d-flex justify-content-between">
                             <h5 class="mb-0 me-4">Shipping fee:</h5>

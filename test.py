@@ -1,7 +1,7 @@
 from graphviz import Digraph
 
 # Create the main flowchart
-dot = Digraph(comment='WM Retail Workflow with Optional METRC Integration')
+dot = Digraph(comment='Retail Workflow with Optional METRC Integration')
 
 # Graph settings
 dot.attr(rankdir='LR', size='8,5')
