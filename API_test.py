@@ -30,3 +30,4 @@ def test_get_facilities():
 # === RUN TEST ===
 if __name__ == '__main__':
     test_get_facilities()
+    

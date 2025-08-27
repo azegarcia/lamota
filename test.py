@@ -1,34 +1,48 @@
-from graphviz import Digraph
+import requests
 
-# Create the main flowchart
-dot = Digraph(comment='Retail Workflow with Optional METRC Integration')
+API_BASE_URL = "http://api.example.com"
+GET_ENDPOINT = "/packages"
+POST_ENDPOINT = "/packages"  # or /packages/{id} if updating
+HEADERS = {
+    "Authorization": "Bearer your_api_key",
+    "Content-Type": "application/json"
+}
 
-# Graph settings
-dot.attr(rankdir='LR', size='8,5')
+def get_packages():
+    response = requests.get(API_BASE_URL + GET_ENDPOINT, headers=HEADERS)
+    response.raise_for_status()
+    return response.json()
 
-# Nodes
-dot.node('A', 'Customer Places Order\n(Weedmaps or In-Store)', shape='ellipse', style='filled', fillcolor='lightgreen')
-dot.node('B', 'Order Enters WM Retail\n(POS Dashboard)', shape='box', style='filled', fillcolor='lightblue')
-dot.node('C', 'Inventory Updates\nin Real-Time', shape='box', style='filled', fillcolor='khaki')
-dot.node('D1', 'Export Sales & Inventory Report\n(Manual Process)', shape='parallelogram', style='filled', fillcolor='orange')
-dot.node('E1', 'Upload to METRC\n(Manual Entry/CSV)', shape='box', style='filled', fillcolor='red')
+def modify_package(package):
+    package["customField"] = "custom value"
+    package["name"] = f"{package['name']}-modified"
+    return package
 
-# Optional integration path
-dot.node('D2', 'Send Data to METRC via\nThird-Party Integration (e.g., Canix)', shape='box', style='filled', fillcolor='lightcoral')
+def save_package(package):
+    package_id = package.get("id", "")
+    url = f"{API_BASE_URL}{POST_ENDPOINT}/{package_id}" if package_id else API_BASE_URL + POST_ENDPOINT
 
-# Edges
-dot.edge('A', 'B', label='Online or In-Person Order')
-dot.edge('B', 'C', label='Real-time')
-dot.edge('C', 'D1', label='Manual Report Export')
-dot.edge('D1', 'E1', label='Compliance Upload')
-dot.edge('C', 'D2', label='Optional Automation')
+    response = requests.put(url, json=package, headers=HEADERS)  # use .post() if creating new
+    response.raise_for_status()
+    return response.json()
 
-# Legend
-with dot.subgraph(name='cluster_legend') as c:
-    c.attr(label='Legend', style='dashed')
-    c.node('L1', 'Manual Task', shape='parallelogram', style='filled', fillcolor='orange')
-    c.node('L2', 'Automated Task', shape='box', style='filled', fillcolor='lightblue')
-    c.node('L3', 'Optional Integration', shape='box', style='filled', fillcolor='lightcoral')
+def test_package_modification_flow():
+    print("Fetching packages...")
+    packages = get_packages()
 
-# Render the file
-dot.render(format='png', filename='wm_retail_flowchart', cleanup=False)
+    if not packages:
+        print("No packages found.")
+        return
+
+    print("Modifying first package...")
+    modified_package = modify_package(packages[0])
+
+    print("Saving modified package...")
+    result = save_package(modified_package)
+
+    print("Result:")
+    print(result)
+
+if __name__ == "__main__":
+    test_package_modification_flow()
+    
